@@ -9,7 +9,7 @@ export const ui = {
     'nav.home': 'Home',
     'nav.project': 'Projects',
         
-    'hero.viewPubs': 'View Publications',
+    'hero.viewSite': 'Visit Website',
     'hero.meetTeam': 'Meet the Team',
     
     'section.selectedPubs': 'Projects',
@@ -26,10 +26,9 @@ export const ui = {
     'nav.home': 'ホーム',
     'nav.project': 'プロジェクト',
 
-    'hero.title': 'コンピュータビジョンとディープラーニング研究の推進。',
-    'hero.subtitle': '私たちは、Scholar-Lite ラボです。',
-    'hero.viewPubs': '論文を見る',
-    'hero.meetTeam': 'チーム紹介',
+    'hero.title': 'コンピュータビジョンとディープラーニング研究の推進',
+    'hero.subtitle': '私たちは映像情報処理研究室です。',
+    'hero.viewSite': 'ウェブサイト',
 
     'section.selectedPubs': 'プロジェクト',
     'section.viewAll': 'すべて見る',
