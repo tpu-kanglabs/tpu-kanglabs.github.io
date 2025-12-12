@@ -9,11 +9,6 @@ import ProjectCard from "../components/ProjectCard.astro";
 const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
-
-const papers = (await getCollection("publications"))
-  .filter((p) => p.data.type === "paper" && p.data.featured)
-  .sort((a, b) => b.data.year - a.data.year)
-  .slice(0, 3);
 ---
 
 <Layout title="Home">
