@@ -10,7 +10,6 @@ export const ui = {
     "nav.project": "Projects",
 
     "hero.viewSite": "Visit Website",
-    "hero.meetTeam": "Meet the Team",
 
     "section.selectedPubs": "Projects",
     "section.viewAll": "View all",
