@@ -1,0 +1,6 @@
+# Project Overview
+- Purpose: Astro-based static site for AI Vision Lab (academic projects/publications) with multilingual support and content-driven sections (publications, activities, team, research, patents, etc.).
+- Tech stack: Astro 5, TypeScript, Tailwind CSS 4, optional React components via @astrojs/react, Pagefind for search indexing, astro:content collections for typed Markdown/MDX. Node >= 22.12; pnpm lock present.
+- Structure: `src/pages` (routes such as home/projects), `src/layouts` (shared shells), `src/components` (UI pieces), `src/assets` (images used with astro:assets), `src/styles` (global styles), `src/content` (collection data defined in `src/content.config.ts`), `public` (static assets), `src/config.ts` (site metadata/navigation), `src/i18n` (translation helpers).
+- Content schema highlights: publications/activities/team/research/patents/softwares/honors collections with typed frontmatter; image fields require astro image loader (`image()` in schema) and dates as Date objects. Static files go in `public`, optimized assets in `src/assets`.
+- Notable deps: astro, @astrojs/check, tailwindcss, @astrojs/react, pagefind (search), resvg/satori/sharp for image/OG generation.
