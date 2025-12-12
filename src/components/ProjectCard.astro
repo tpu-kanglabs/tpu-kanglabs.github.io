@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 type Props = {
   project: {
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const { project } = Astro.props;
-const isExternal = project.data.link?.startsWith('http');
+const isExternal = project.data.link?.startsWith("http");
 ---
 
 <a 

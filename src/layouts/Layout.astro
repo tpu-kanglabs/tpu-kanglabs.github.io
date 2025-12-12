@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import { SITE } from '../config';
-import { ui, defaultLang } from '../i18n/ui';
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import { SITE } from "../config";
+import { ui, defaultLang } from "../i18n/ui";
 
 interface Props {
   title?: string;
@@ -10,7 +10,9 @@ interface Props {
 }
 
 const { title, description = SITE.description } = Astro.props;
-const pageTitle = title ? `${title} | ${SITE.labName}` : `${SITE.labName} - ${SITE.university}`;
+const pageTitle = title
+  ? `${title} | ${SITE.labName}`
+  : `${SITE.labName} - ${SITE.university}`;
 
 // Define dynamic OG Image
 // If it's the homepage, use index.png. Otherwise, try to map the path to a slug.
@@ -19,12 +21,19 @@ const pageTitle = title ? `${title} | ${SITE.labName}` : `${SITE.labName} - ${SI
 // But standard pages like /research match /og/research.
 // What about nested pages like /research/cv? Our OG generator doesn't handle them yet (it only has static pages list).
 // So we will use a fallback.
-const currentPath = Astro.url.pathname.replace(/^\/|\/$/g, '');
-const ogSlug = currentPath === '' ? 'index' : currentPath;
+const currentPath = Astro.url.pathname.replace(/^\/|\/$/g, "");
+const ogSlug = currentPath === "" ? "index" : currentPath;
 // Check if the current path is one of our supported OG pages (index, research, team, publications, news, join).
 // If not, fallback to index.
-const supportedOgPages = ['index', 'research', 'team', 'publications', 'news', 'join'];
-const finalOgSlug = supportedOgPages.includes(ogSlug) ? ogSlug : 'index';
+const supportedOgPages = [
+  "index",
+  "research",
+  "team",
+  "publications",
+  "news",
+  "join",
+];
+const finalOgSlug = supportedOgPages.includes(ogSlug) ? ogSlug : "index";
 const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
 ---
 

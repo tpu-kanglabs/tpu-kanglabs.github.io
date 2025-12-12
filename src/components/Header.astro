@@ -1,15 +1,29 @@
 ---
-import { SITE, LOGO_IMAGE } from '../config';
-import { 
-  Menu, X, Globe, ChevronDown, Check, Moon, Sun,
-  Home, BookOpen, Trophy, Users, Calendar, UserPlus, Sparkles, Search
-} from 'lucide-react';
+import { SITE, LOGO_IMAGE } from "../config";
+import {
+  Menu,
+  X,
+  Globe,
+  ChevronDown,
+  Check,
+  Moon,
+  Sun,
+  Home,
+  BookOpen,
+  Trophy,
+  Users,
+  Calendar,
+  UserPlus,
+  Sparkles,
+  Search,
+} from "lucide-react";
 
-import { ui, defaultLang, languages } from '../i18n/ui';
+import { ui, defaultLang, languages } from "../i18n/ui";
 
 const { nav, i18n, customPages } = SITE;
 const navItems: { text: string; link: string; key: string }[] = nav ?? [];
-const customPageItems: { text: string; link: string; key: string }[] = customPages ?? [];
+const customPageItems: { text: string; link: string; key: string }[] =
+  customPages ?? [];
 
 const iconMap: Record<string, any> = {
   home: Home,

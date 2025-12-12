@@ -1,20 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import { ArrowRight } from 'lucide-react';
-import { SITE } from '../config';
-import ProjectCard from '../components/ProjectCard.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { ArrowRight } from "lucide-react";
+import { SITE } from "../config";
+import ProjectCard from "../components/ProjectCard.astro";
 
-const projects = (await getCollection('projects'))
+const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
 
-const papers = (await getCollection('publications'))
-  .filter(p => p.data.type === 'paper' && p.data.featured)
+const papers = (await getCollection("publications"))
+  .filter((p) => p.data.type === "paper" && p.data.featured)
   .sort((a, b) => b.data.year - a.data.year)
   .slice(0, 3);
-
 ---
 
 <Layout title="Home">
