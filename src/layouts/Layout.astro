@@ -27,11 +27,7 @@ const ogSlug = currentPath === "" ? "index" : currentPath;
 // If not, fallback to index.
 const supportedOgPages = [
   "index",
-  "research",
-  "team",
-  "publications",
-  "news",
-  "join",
+  "projects",
 ];
 const finalOgSlug = supportedOgPages.includes(ogSlug) ? ogSlug : "index";
 const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
