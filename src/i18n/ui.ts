@@ -11,7 +11,7 @@ export const ui = {
 
     "hero.viewSite": "Visit Website",
 
-    "section.selectedPubs": "Projects",
+    "section.projects": "Featured Projects",
     "section.viewAll": "View all",
 
     "project.subtitle":
@@ -28,7 +28,7 @@ export const ui = {
 
     "hero.viewSite": "ウェブサイト",
 
-    "section.selectedPubs": "プロジェクト",
+    "section.projects": "主なプロジェクト",
     "section.viewAll": "すべて見る",
 
     "project.subtitle":
