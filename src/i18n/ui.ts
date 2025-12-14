@@ -26,8 +26,6 @@ export const ui = {
     "nav.home": "ホーム",
     "nav.project": "プロジェクト",
 
-    "hero.title": "コンピュータビジョンとディープラーニング研究の推進",
-    "hero.subtitle": "私たちは映像情報処理研究室です。",
     "hero.viewSite": "ウェブサイト",
 
     "section.selectedPubs": "プロジェクト",
