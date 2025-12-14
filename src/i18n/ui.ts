@@ -40,13 +40,3 @@ export const ui = {
     "footer.powered": "Powered by",
   },
 } as const;
-
-export function getLangFromUrl(url: URL) {
-  return defaultLang;
-}
-
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
-  };
-}
