@@ -14,8 +14,6 @@ export const SITE = {
   // Lab Info
   labName: "AI Vision Lab",
   university: "Tokyo Polytechnic University",
-  logo: "/assets/logo-real.svg", // Logo path
-  avatar: "/assets/logo-real.svg", // Avatar for SEO/Schema
   email: "yskang@t-kougei.ac.jp", // Contact email for Join Us page
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
