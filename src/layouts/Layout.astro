@@ -37,7 +37,6 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self';" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,25 +57,6 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
     <meta property="twitter:title" content={pageTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImage} />
-
-    {
-      Astro.url.pathname === '/' && (
-        <script is:inline type="application/ld+json" set:html={JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": SITE.author,
-          "url": SITE.website,
-          "image": new URL(SITE.avatar || SITE.logo, SITE.website).href,
-          "jobTitle": "Principal Investigator",
-          "worksFor": {
-            "@type": "Organization",
-            "name": SITE.labName,
-            "url": SITE.website
-          },
-          "description": SITE.description
-        })} />
-      )
-    }
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
