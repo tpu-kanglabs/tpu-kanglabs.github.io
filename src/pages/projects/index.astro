@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { ArrowRight } from "lucide-react";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout title="Projects">
+  <div class="max-w-7xl mx-auto px-4 py-12 sm:py-20">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4" data-i18n-key="nav.project">Projects</h1>
+      <p class="text-lg text-gray-600" data-i18n-key="project.subtitle">
+        Our lab explores the frontiers of artificial intelligence, with a focus on computer vision and machine learning.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => <ProjectCard project={project} />)}
+    </div>
+
+    {projects.length === 0 && (
+      <div class="text-center py-20">
+        <p class="text-gray-500" data-i18n-key="project.noAreas">No projects defined. Add markdown files to src/content/projects/</p>
+      </div>
+    )}
+  </div>
+</Layout>
