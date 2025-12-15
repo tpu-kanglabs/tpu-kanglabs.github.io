@@ -14,8 +14,6 @@ export const SITE = {
   // Lab Info
   labName: "AI Vision Lab",
   university: "Tokyo Polytechnic University",
-  logo: "/assets/logo-real.svg", // Logo path
-  avatar: "/assets/logo-real.svg", // Avatar for SEO/Schema
   email: "yskang@t-kougei.ac.jp", // Contact email for Join Us page
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
@@ -48,13 +46,6 @@ export const LOCALE = {
   lang: "en", // html lang code. Set this empty and default will be "en"
   langTag: ["en-EN"], // BCP 47 Language Tags. Set this empty [] to use the environment default
 } as const;
-
-export const LOGO_IMAGE = {
-  enable: true,
-  svg: true,
-  width: 216,
-  height: 46,
-};
 
 export const SOCIALS = [
   {

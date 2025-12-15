@@ -1,5 +1,5 @@
 ---
-import { SITE, LOGO_IMAGE } from "../config";
+import { SITE } from "../config";
 import {
   Menu,
   X,
@@ -45,7 +45,6 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
       <!-- Logo & Name -->
       <div class="flex items-center gap-3">
         <a href="/" class="flex items-center gap-2 group">
-          {LOGO_IMAGE.enable && SITE.logo && <img src={SITE.logo} alt="Logo" class="h-8 w-8 object-contain" />}
           <div class="flex flex-col sm:flex-row sm:items-end sm:gap-2 leading-tight">
             <span class="font-bold text-gray-900 text-lg leading-tight group-hover:text-blue-600 transition-colors">
               {SITE.labName}
@@ -153,7 +152,6 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
     <!-- Header with Close Button -->
     <div class="flex items-center justify-between px-6 h-20 border-b border-gray-100 shrink-0 bg-white">
       <div class="flex items-center gap-3">
-        {LOGO_IMAGE.enable && SITE.logo && <img src={SITE.logo} alt="Logo" class="h-10 w-10 object-contain" />}
         <span class="font-bold text-gray-900 text-xl">{SITE.labName}</span>
       </div>
       <button 
