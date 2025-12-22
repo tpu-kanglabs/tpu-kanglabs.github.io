@@ -1,8 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { ArrowRight } from "lucide-react";
 import ProjectCard from "../../components/ProjectCard.astro";
+import Layout from "../../layouts/Layout.astro";
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => a.data.order - b.data.order,

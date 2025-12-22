@@ -1,17 +1,6 @@
 ---
 import { Image } from "astro:assets";
 
-type Props = {
-  project: {
-    data: {
-      title: string;
-      description: string;
-      cover?: ImageMetadata;
-      link: string;
-    };
-  };
-};
-
 const { project } = Astro.props;
 const isExternal = project.data.link?.startsWith("http");
 ---

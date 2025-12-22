@@ -1,9 +1,9 @@
 import { getCollection } from "astro:content";
-import satori from "satori";
-import { Resvg } from "@resvg/resvg-js";
-import { SITE } from "../../config";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { Resvg } from "@resvg/resvg-js";
+import satori from "satori";
+import { SITE } from "../../config";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -30,7 +30,13 @@ export async function getStaticPaths() {
   return [...staticPaths, ...projectPaths];
 }
 
-export async function GET({ params, props }: { params: any; props: any }) {
+export async function GET({
+  params,
+  props,
+}: {
+  params: { slug: string | string[] };
+  props: { title: string; subtitle: string };
+}) {
   const { title, subtitle } = props;
   const slug = Array.isArray(params.slug)
     ? params.slug.join("/")
