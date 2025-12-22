@@ -101,7 +101,6 @@ const customPageItems: { text: string; link: string; key: string }[] =
         aria-label="Toggle menu"
         aria-controls="mobile-menu"
         aria-expanded="false"
-        onclick="(e) => window.toggleMobileMenu(e)"
       >
         <span class="icon-menu block transition-transform duration-300">
           <Menu className="w-6 h-6" />
@@ -304,6 +303,9 @@ const customPageItems: { text: string; link: string; key: string }[] =
       if (isHidden) openMenu();
       else window.closeMobileMenu();
     };
+
+    // Add click event listener to mobile menu button
+    btn?.addEventListener('click', window.toggleMobileMenu);
 
     // Close on link click in drawer
     menu?.querySelectorAll('a').forEach(link => {
