@@ -1,42 +1,13 @@
 ---
+import { Check, ChevronDown, Globe, Menu, Search, X } from "lucide-react";
 import { SITE } from "../config";
-import {
-  Menu,
-  X,
-  Globe,
-  ChevronDown,
-  Check,
-  Moon,
-  Sun,
-  Home,
-  BookOpen,
-  Trophy,
-  Users,
-  Calendar,
-  UserPlus,
-  Sparkles,
-  Search,
-} from "lucide-react";
 
-import { ui, defaultLang, languages } from "../i18n/ui";
+import { languages } from "../i18n/ui";
 
 const { nav, i18n, customPages } = SITE;
 const navItems: { text: string; link: string; key: string }[] = nav ?? [];
 const customPageItems: { text: string; link: string; key: string }[] =
   customPages ?? [];
-
-const iconMap: Record<string, any> = {
-  home: Home,
-  research: BookOpen,
-  achievements: Trophy,
-  team: Users,
-  activities: Calendar,
-  join: UserPlus,
-  search: Search,
-};
-
-// Helper to get icon
-const getIcon = (key: string) => iconMap[key] || Sparkles;
 ---
 
 <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 transition-colors duration-300">
@@ -130,7 +101,7 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
         aria-label="Toggle menu"
         aria-controls="mobile-menu"
         aria-expanded="false"
-        onclick="window.toggleMobileMenu(event)"
+        onclick="(e) => window.toggleMobileMenu(e)"
       >
         <span class="icon-menu block transition-transform duration-300">
           <Menu className="w-6 h-6" />
