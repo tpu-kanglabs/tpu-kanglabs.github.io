@@ -66,10 +66,13 @@ const customPageItems: { text: string; link: string; key: string }[] =
         
         
         {i18n.enabled && (
-          <div class="relative ml-2 group">
+          <div class="relative ml-2">
             <button 
+              id="desktop-lang-btn"
               class="flex items-center gap-1 px-3 py-2 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors outline-none"
               aria-label="Select Language"
+              aria-expanded="false"
+              aria-haspopup="true"
             >
               <Globe className="w-4 h-4" />
               <span class="text-xs font-medium uppercase" id="current-lang-label">ZH</span>
@@ -77,7 +80,7 @@ const customPageItems: { text: string; link: string; key: string }[] =
             </button>
             
             <!-- Dropdown Menu -->
-            <div class="absolute right-0 pt-2 w-40 hidden group-hover:block transform origin-top-right transition-all">
+            <div id="desktop-lang-dropdown" class="absolute right-0 mt-2 w-40 hidden transform origin-top-right transition-all">
               <div class="bg-white rounded-xl shadow-xl border border-gray-100 py-2">
                 {Object.entries(languages).map(([code, label]) => (
                   <button
@@ -334,10 +337,41 @@ const customPageItems: { text: string; link: string; key: string }[] =
       updateHeaderLang(saved);
     } catch {}
 
+    // Desktop language dropdown toggle
+    const desktopLangBtn = document.getElementById('desktop-lang-btn');
+    const desktopLangDropdown = document.getElementById('desktop-lang-dropdown');
+    
+    function toggleDesktopLangDropdown(e) {
+      if (e) e.stopPropagation();
+      const isHidden = desktopLangDropdown?.classList.contains('hidden');
+      if (isHidden) {
+        desktopLangDropdown?.classList.remove('hidden');
+        desktopLangBtn?.setAttribute('aria-expanded', 'true');
+      } else {
+        desktopLangDropdown?.classList.add('hidden');
+        desktopLangBtn?.setAttribute('aria-expanded', 'false');
+      }
+    }
+    
+    function closeDesktopLangDropdown() {
+      desktopLangDropdown?.classList.add('hidden');
+      desktopLangBtn?.setAttribute('aria-expanded', 'false');
+    }
+    
+    desktopLangBtn?.addEventListener('click', toggleDesktopLangDropdown);
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!desktopLangBtn?.contains(e.target) && !desktopLangDropdown?.contains(e.target)) {
+        closeDesktopLangDropdown();
+      }
+    });
+    
     document.querySelectorAll('.lang-option:not(.mobile-lang-option)').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
         if (window.setLanguage) window.setLanguage(lang);
+        closeDesktopLangDropdown();
       });
     });
 
