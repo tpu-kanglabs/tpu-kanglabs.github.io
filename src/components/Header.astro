@@ -362,17 +362,19 @@ const customPageItems: { text: string; link: string; key: string }[] =
     
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
-      if (!desktopLangBtn?.contains(e.target) && !desktopLangDropdown?.contains(e.target)) {
+      if (e.target && !desktopLangBtn?.contains(e.target) && !desktopLangDropdown?.contains(e.target)) {
         closeDesktopLangDropdown();
       }
     });
     
-    document.querySelectorAll('.lang-option:not(.mobile-lang-option)').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-lang');
-        if (window.setLanguage) window.setLanguage(lang);
+    // Handle language option clicks via event delegation
+    desktopLangDropdown?.addEventListener('click', (e) => {
+      const target = e.target.closest('.lang-option:not(.mobile-lang-option)');
+      if (target) {
+        const lang = target.getAttribute('data-lang');
+        if (window.setLanguage && lang) window.setLanguage(lang);
         closeDesktopLangDropdown();
-      });
+      }
     });
 
     // Auto close when resizing to desktop
