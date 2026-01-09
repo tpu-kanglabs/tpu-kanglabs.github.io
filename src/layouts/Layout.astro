@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import { SITE } from "../config";
 import { defaultLang, ui } from "../i18n/ui";
+import Analytics from "../lib/analytics.astro";
 
 interface Props {
   title?: string;
@@ -28,6 +29,8 @@ const ogSlug = currentPath === "" ? "index" : currentPath;
 const supportedOgPages = ["index", "projects"];
 const finalOgSlug = supportedOgPages.includes(ogSlug) ? ogSlug : "index";
 const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
+
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -38,7 +41,7 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <title>{pageTitle}</title>
 
     <!-- Open Graph / Facebook -->
@@ -60,11 +63,15 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
     <main class="flex-grow" data-pagefind-body>
       <slot />
     </main>
-    
+
     <footer class="border-t border-gray-100 py-8 mt-12 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
         <p>
-          <a href="https://github.com/fjd2004711/scholar-lite" target="_blank" class="hover:text-gray-700 inline-flex items-center gap-1 transition-colors">
+          <a
+            href="https://github.com/fjd2004711/scholar-lite"
+            target="_blank"
+            class="hover:text-gray-700 inline-flex items-center gap-1 transition-colors"
+          >
             Built with Scholar-Lite Open Source Template
           </a>
         </p>
@@ -77,24 +84,24 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
       const fallbackLang = defaultLang;
 
       function getStoredLang() {
-        if (typeof localStorage !== 'undefined') {
-          return localStorage.getItem('preferred-lang') || fallbackLang;
+        if (typeof localStorage !== "undefined") {
+          return localStorage.getItem("preferred-lang") || fallbackLang;
         }
         return fallbackLang;
       }
 
       // Expose global setLanguage function
       window.setLanguage = (lang) => {
-        localStorage.setItem('preferred-lang', lang);
+        localStorage.setItem("preferred-lang", lang);
         document.documentElement.lang = lang;
-        
+
         // Update all elements with data-i18n-key
-        const elements = document.querySelectorAll('[data-i18n-key]');
-        elements.forEach(el => {
-          const key = el.getAttribute('data-i18n-key');
+        const elements = document.querySelectorAll("[data-i18n-key]");
+        elements.forEach((el) => {
+          const key = el.getAttribute("data-i18n-key");
           if (key && translations[lang] && translations[lang][key]) {
             // Check if it's an input/textarea with placeholder
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
               el.placeholder = translations[lang][key];
             } else {
               el.textContent = translations[lang][key];
@@ -103,7 +110,9 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
         });
 
         // Dispatch event for other components (like Header)
-        window.dispatchEvent(new CustomEvent('language-change', { detail: { lang } }));
+        window.dispatchEvent(
+          new CustomEvent("language-change", { detail: { lang } }),
+        );
       };
 
       // Initialize
@@ -111,5 +120,6 @@ const ogImage = new URL(`/og/${finalOgSlug}.png`, Astro.url);
       // Run immediately to avoid flash
       window.setLanguage(currentLang);
     </script>
+    {isProd && <Analytics />}
   </body>
 </html>

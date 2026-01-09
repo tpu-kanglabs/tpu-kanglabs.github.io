@@ -1,7 +1,7 @@
 // @ts-check
 
+import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
-
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
@@ -18,5 +18,5 @@ export default defineConfig({
     },
   },
 
-  integrations: [react()],
+  integrations: [react(), partytown()],
 });
