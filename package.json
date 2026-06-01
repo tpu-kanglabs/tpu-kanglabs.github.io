@@ -5,7 +5,7 @@
   "description": "A lightweight, modern static website template for academic labs and scholars, featuring zero-config BibTeX import and multilingual support.",
   "license": "MIT",
   "engines": {
-    "node": ">=24.14.1"
+    "node": ">=24.16.0"
   },
   "scripts": {
     "dev": "astro dev",
