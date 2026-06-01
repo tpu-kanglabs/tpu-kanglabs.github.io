@@ -34,8 +34,5 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.14"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp"]
   }
 }
