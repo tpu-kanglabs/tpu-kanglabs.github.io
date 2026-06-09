@@ -20,7 +20,7 @@
     "@astrojs/react": "^5.0.4",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.2.4",
-    "@types/react": "^19.2.16",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.2.1",
     "lucide-react": "^1.14.0",
