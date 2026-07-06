@@ -45,7 +45,7 @@ importers:
         specifier: ^0.26.0
         version: 0.26.0
       sharp:
-        specifier: ^0.35.2
+        specifier: ^0.35.3
         version: 0.35.3
       slugify:
         specifier: ^1.6.9
