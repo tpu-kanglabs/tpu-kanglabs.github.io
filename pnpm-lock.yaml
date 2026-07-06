@@ -33,7 +33,7 @@ importers:
         specifier: ^7.0.6
         version: 7.0.6(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(jiti@2.7.0)(yaml@2.9.0)
       lucide-react:
-        specifier: ^1.22.0
+        specifier: ^1.23.0
         version: 1.23.0(react@19.2.7)
       react:
         specifier: ^19.2.7
