@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup mise
+        uses: jdx/mise-action@v4
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+      - name: Run lint
+        run: pnpm lint
